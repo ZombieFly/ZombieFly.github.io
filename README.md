@@ -6,7 +6,7 @@
 
 以下部分作为简单的网页展示测试
 
-```markdown
+```python
 from json import loads, dump
 
 class config():
