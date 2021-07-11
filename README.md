@@ -1,37 +1,51 @@
-## Welcome to GitHub Pages
+## Welcome Zombie_fly's dev website
 
-You can use the [editor on GitHub](https://github.com/ZombieFly/zomfly.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+这里将被用来存放个人项目（或所参与项目）的帮助文档
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### 显示测试
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+以下部分作为简单的网页展示测试
 
 ```markdown
-Syntax highlighted code block
+from json import loads, dump
 
-# Header 1
-## Header 2
-### Header 3
+class config():
+    """配置文件管理
+    """    
+    def __init__(self, config_path: str) -> None:
+        """配置文件操作初始化
 
-- Bulleted
-- List
+        Args:
+            config_path (str): 配置文件路径
+        """        
+        self.config_path= config_path
+        self.read()
+        return None
+    def read(self) -> dict:
+        """读取配置文件，转换为字典
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+        Returns:
+            dict: 配置内容
+        """
+        
+        with open(self.config_path,'r') as file_obj:
+            text= file_obj.read()
+        self.config= loads(text)
+        return self.config
+    def append(self, *args: dict) -> None:
+        """配置追加
+        
+        Args:
+            *args (dict): 追加内容
+        """        
+        for add_config in args:
+            self.config.update(add_config)
+        return
+    def write(self) -> None:
+        """以json形式写入配置文件至 self.config
+        """        
+        with open(self.config_path, 'w') as file_obj:
+            dump(self.config, file_obj, indent=4, ensure_ascii=False)
+        return
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ZombieFly/zomfly.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
