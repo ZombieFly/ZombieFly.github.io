@@ -1,1 +1,14 @@
-theme: jekyll-theme-slate
+title: Zombie_fly's dev website
+lang: en
+description: A dev website
+
+remote_theme: rundocs/jekyll-rtd-theme
+
+readme_index:
+  with_frontmatter: true
+
+exclude:
+  - Makefile
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
