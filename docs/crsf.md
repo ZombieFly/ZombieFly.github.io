@@ -1,5 +1,8 @@
 # CRSF Protocol
 
+From: tbs-fpv/tbs-crsf-spec
+Waiting for translation.
+
 # Table of Contents
 
 - [CRSF Protocol](#crsf-protocol)
